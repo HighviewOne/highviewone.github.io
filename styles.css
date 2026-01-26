@@ -246,6 +246,18 @@ body {
     font-size: 0.85rem;
 }
 
+.role-location {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.role > p:not(.role-location) {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
 .role ul,
 .experience-item > ul {
     list-style: none;
