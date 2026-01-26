@@ -364,6 +364,15 @@ body {
     margin-bottom: 12px;
 }
 
+.professional-dev a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.professional-dev a:hover {
+    text-decoration: underline;
+}
+
 .professional-dev ul {
     list-style: none;
     padding: 0;
