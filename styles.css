@@ -417,6 +417,106 @@ body {
     font-size: 0.95rem;
 }
 
+/* Resume Download */
+.resume-download {
+    display: inline-block;
+    padding: 10px 24px;
+    margin-bottom: 20px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.resume-download:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Credentials */
+.credentials-subsection {
+    margin-bottom: 32px;
+}
+
+.credentials-subsection:last-child {
+    margin-bottom: 0;
+}
+
+.credentials-subsection h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.credentials-grid a {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.credentials-grid a:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+}
+
+.credentials-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.credentials-grid span {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.document-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.document-links a {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 0;
+    padding-left: 16px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.document-links a::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.document-links a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
 /* Contact */
 #contact > p {
     color: var(--text-secondary);
@@ -459,6 +559,12 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+    .credentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 0 16px;
@@ -496,6 +602,15 @@ body {
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .credentials-grid img {
+        height: 200px;
     }
 
     .contact-links {
