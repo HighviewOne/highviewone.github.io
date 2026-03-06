@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +9,17 @@
 :root {
     --bg: #0d1117;
     --bg-secondary: #161b22;
+    --bg-tertiary: #1c2128;
     --border: #30363d;
+    --border-hover: #484f58;
     --text: #e6edf3;
     --text-secondary: #8b949e;
+    --text-muted: #6e7681;
     --accent: #58a6ff;
     --accent-hover: #79b8ff;
+    --accent-subtle: rgba(88, 166, 255, 0.1);
+    --green: #3fb950;
+    --radius: 8px;
 }
 
 html {
@@ -19,7 +27,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -33,23 +41,50 @@ body {
 }
 
 /* Header */
+.monogram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
 .header {
     padding: 80px 0 60px;
     text-align: center;
     border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse at 50% 0%, rgba(88, 166, 255, 0.06) 0%, transparent 70%);
 }
 
 .header h1 {
     font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-weight: 700;
+    margin-bottom: 12px;
     letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.hero-eyebrow {
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
 
 .subtitle {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 20px;
+    line-height: 1.8;
 }
 
 .social-links {
@@ -104,9 +139,24 @@ body {
 
 .section h2 {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 24px;
     color: var(--text);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-subtle);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
 .section > p {
@@ -151,12 +201,21 @@ body {
 
 /* Projects */
 .project {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+    margin-bottom: 12px;
+    transition: border-color 0.2s, background 0.2s;
 }
 
 .project:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.project:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-tertiary);
 }
 
 .project h3 {
@@ -214,7 +273,11 @@ body {
 
 /* Experience */
 .experience-item {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
 }
 
 .experience-item:last-child {
@@ -317,13 +380,20 @@ body {
     gap: 24px;
 }
 
+.skill-group {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+
 .skill-group h3 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
 }
 
 .skill-group ul {
@@ -613,23 +683,24 @@ body {
     }
 
     .header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .nav {
-        gap: 16px;
+        gap: 12px;
+        font-size: 0.85rem;
     }
 
     .section {
-        padding: 36px 0;
+        padding: 32px 0;
     }
 
     .section h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .experience-header {
@@ -637,9 +708,21 @@ body {
         gap: 4px;
     }
 
+    .experience-item {
+        padding: 16px;
+    }
+
+    .project {
+        padding: 16px;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 12px;
+    }
+
+    .skill-group {
+        padding: 12px;
     }
 
     .credentials-grid {
@@ -654,5 +737,10 @@ body {
     .contact-links {
         flex-direction: column;
         gap: 12px;
+    }
+
+    .resume-download {
+        font-size: 0.9rem;
+        padding: 8px 18px;
     }
 }
