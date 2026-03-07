@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.editorconfig
+
+# Node (if using later)
+node_modules/
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# Build/dist
+dist/
+build/
+
+# Temp files
+*.tmp
+.temp/
+
+# Local testing
+.local/
