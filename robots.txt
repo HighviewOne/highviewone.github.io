@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://highviewone.github.io/sitemap.xml
