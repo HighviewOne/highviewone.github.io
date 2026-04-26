@@ -185,7 +185,7 @@ function About() {
             <p>Today, I'm at Leidos supporting <strong>FAA National Airspace System modernization</strong> — designing system integration packages for NEXCOM Radios, Air-to-Ground Protocol Converters, and Airport Cable Loop infrastructure across the Western Service Area.</p>
             <p>Across all of it, the through-line is the same: rigorous testing, a healthy fear of single points of failure, and clean handoffs to whoever runs it next. I bring depth where the system is unforgiving — and I'm actively extending that depth into modern data and ML platforms.</p>
             <div className="now-card">
-              <h4>Currently building</h4>
+              <h3>Currently building</h3>
               <ul>
                 <li>Data Engineering Zoomcamp 2026 — Docker, SQL, Terraform</li>
                 <li>Peer reviewer for ML Zoomcamp 2025 & AI Dev Tools Zoomcamp 2025</li>
@@ -231,7 +231,7 @@ function CareerArc() {
               <div className="loc">{node.loc}</div>
             </div>
             <div className="arc-detail-body">
-              <h4>{node.company}</h4>
+              <h3>{node.company}</h3>
               <p className="summary">{node.headline}</p>
               <p style={{ color: "var(--ink-3)", fontSize: 13, marginBottom: 14 }}>{node.summary}</p>
               <ul>
@@ -320,7 +320,7 @@ function Skills() {
         <div className="skills-matrix">
           {window.SKILLS.map((g) => (
             <div className="skill-cell" key={g.title}>
-              <h4><span className="icon"><Icon name={g.icon} size={12} /></span>{g.title}</h4>
+              <h3><span className="icon"><Icon name={g.icon} size={12} /></span>{g.title}</h3>
               {g.items.map((it) => (
                 <div className="row" key={it.name}>
                   <span className="name">{it.name}</span>
