@@ -170,6 +170,13 @@ body {
     text-decoration: underline;
 }
 
+.nav a.active {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 /* Sections */
 .section {
     padding: 48px 0;
