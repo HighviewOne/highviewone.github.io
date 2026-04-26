@@ -28,7 +28,7 @@
       "@type": "Person",
       "name": "Michael Altamirano",
       "url": "https://highviewone.github.io",
-      "image": "https://highviewone.github.io/assets/og-image.svg",
+      "image": "https://highviewone.github.io/assets/og-image.png",
       "jobTitle": "Systems Engineer",
       "alumniOf": [
         {
@@ -589,7 +589,16 @@
         const htmlElement = document.documentElement;
         const sunIcon = themeToggle.querySelector('.sun-icon');
         const moonIcon = themeToggle.querySelector('.moon-icon');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+
+        function getStoredTheme() {
+            try { return localStorage.getItem('theme'); } catch { return null; }
+        }
+        function setStoredTheme(t) {
+            try { localStorage.setItem('theme', t); } catch {}
+        }
+
+        const osPreference = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        const savedTheme = getStoredTheme() || osPreference;
 
         // Set initial theme
         htmlElement.setAttribute('data-theme', savedTheme);
@@ -599,7 +608,7 @@
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            setStoredTheme(newTheme);
             updateThemeIcons(newTheme);
         });
 
