@@ -1,10 +1,9 @@
 /* global React, ReactDOM, window */
-const { useEffect, useState } = React;
 
 function App() {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = React.useState("about");
 
-  useEffect(() => {
+  React.useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
