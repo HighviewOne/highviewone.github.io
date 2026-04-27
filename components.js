@@ -599,7 +599,7 @@ function Education() {
     }
   }, /*#__PURE__*/React.createElement("h3", {
     className: "subsection-label"
-  }, "Documents"), /*#__PURE__*/React.createElement("div", {
+  }, "Endorsements"), /*#__PURE__*/React.createElement("div", {
     className: "doc-links"
   }, window.DOCUMENTS.map(d => /*#__PURE__*/React.createElement("a", {
     key: d.label,
