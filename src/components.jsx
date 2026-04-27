@@ -401,7 +401,7 @@ function Education() {
         </div>
 
         <div style={{ marginTop: 48 }}>
-          <h3 className="subsection-label">Documents</h3>
+          <h3 className="subsection-label">Endorsements</h3>
           <div className="doc-links">
             {window.DOCUMENTS.map((d) => (
               <a key={d.label} href={d.href} target="_blank" rel="noopener noreferrer" className="doc-link">
