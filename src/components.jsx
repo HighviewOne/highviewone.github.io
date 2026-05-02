@@ -367,15 +367,22 @@ function Education() {
             })}
           </div>
           <div className="edu-list">
-            {window.RECENT_LEARNING.map((e) => (
-              <div className="edu-row" key={e.deg}>
-                <div className="yr">{e.yr}</div>
-                <div>
-                  <div className="deg">{e.deg}</div>
-                  <div className="school">{e.school}</div>
-                </div>
-              </div>
-            ))}
+            {window.RECENT_LEARNING.map((e) => {
+              const content = (
+                <>
+                  <div className="yr">{e.yr}</div>
+                  <div>
+                    <div className="deg">{e.deg}</div>
+                    <div className="school">{e.school}</div>
+                  </div>
+                </>
+              );
+              return e.href ? (
+                <a className="edu-row" key={e.deg} href={e.href} target="_blank" rel="noopener noreferrer">{content}</a>
+              ) : (
+                <div className="edu-row" key={e.deg}>{content}</div>
+              );
+            })}
           </div>
         </div>
 
@@ -459,7 +466,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div>© 2026 Michael Altamirano</div>
-        <div>Last updated · April 2026</div>
+        <div>Last updated · May 2026</div>
         <div>Hosted on GitHub Pages</div>
       </div>
     </footer>

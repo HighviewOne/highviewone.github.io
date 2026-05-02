@@ -554,16 +554,25 @@ function Education() {
     }, content);
   })), /*#__PURE__*/React.createElement("div", {
     className: "edu-list"
-  }, window.RECENT_LEARNING.map(e => /*#__PURE__*/React.createElement("div", {
-    className: "edu-row",
-    key: e.deg
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "yr"
-  }, e.yr), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "deg"
-  }, e.deg), /*#__PURE__*/React.createElement("div", {
-    className: "school"
-  }, e.school)))))), /*#__PURE__*/React.createElement("div", {
+  }, window.RECENT_LEARNING.map(e => {
+    const content = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      className: "yr"
+    }, e.yr), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "deg"
+    }, e.deg), /*#__PURE__*/React.createElement("div", {
+      className: "school"
+    }, e.school)));
+    return e.href ? /*#__PURE__*/React.createElement("a", {
+      className: "edu-row",
+      key: e.deg,
+      href: e.href,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }, content) : /*#__PURE__*/React.createElement("div", {
+      className: "edu-row",
+      key: e.deg
+    }, content);
+  }))), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 56
     }
@@ -670,7 +679,7 @@ function Footer() {
     className: "site-footer"
   }, /*#__PURE__*/React.createElement("div", {
     className: "container footer-inner"
-  }, /*#__PURE__*/React.createElement("div", null, "\xA9 2026 Michael Altamirano"), /*#__PURE__*/React.createElement("div", null, "Last updated \xB7 April 2026"), /*#__PURE__*/React.createElement("div", null, "Hosted on GitHub Pages")));
+  }, /*#__PURE__*/React.createElement("div", null, "\xA9 2026 Michael Altamirano"), /*#__PURE__*/React.createElement("div", null, "Last updated \xB7 May 2026"), /*#__PURE__*/React.createElement("div", null, "Hosted on GitHub Pages")));
 }
 Object.assign(window, {
   Topbar,

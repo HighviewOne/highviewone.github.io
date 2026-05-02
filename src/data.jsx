@@ -82,12 +82,12 @@ const ARC_NODES = [
     loc: "Remote / cohort",
     headline: "Closing the loop: from reliability engineer to ML-aware infrastructure.",
     summary:
-      "Active learner: ML Zoomcamp 2025, AI Dev Tools Zoomcamp 2025, AI Hero crash course, Data Engineering Zoomcamp 2026 in progress.",
+      "Active learner: ML Zoomcamp 2025, AI Dev Tools Zoomcamp 2025, AI Hero crash course, Data Engineering Zoomcamp 2026 (completed).",
     bullets: [
       "ML Zoomcamp 2025 — deep learning, serverless, K8s for ML (Passed)",
       "AI Dev Tools Zoomcamp 2025 — MCP, end-to-end agents",
       "Peer reviewer for ML Zoomcamp & AI Dev Tools Zoomcamp",
-      "Data Engineering Zoomcamp 2026 — Docker, SQL, Terraform (in progress)",
+      "Data Engineering Zoomcamp 2026 — Docker, PostgreSQL, dbt, Spark, Kafka, Terraform (Passed)",
     ],
   },
 ];
@@ -209,6 +209,7 @@ const SKILLS = [
     icon: "ml",
     items: [
       { name: "ML Zoomcamp 2025 (Passed)", level: "Recent" },
+      { name: "Data Engineering Zoomcamp 2026 (Passed)", level: "Recent" },
       { name: "PyTorch / TensorFlow", level: "Working" },
       { name: "FastAPI", level: "Production" },
       { name: "MLOps (Docker/K8s for ML)", level: "Working" },
@@ -245,7 +246,7 @@ const EDUCATION = [
 ];
 
 const RECENT_LEARNING = [
-  { yr: "2026", deg: "Data Engineering Zoomcamp 2026", school: "DataTalksClub · in progress" },
+  { yr: "2026", deg: "Data Engineering Zoomcamp 2026", school: "DataTalksClub · completed", href: "assets/certificates/DataEngineeringZoomcamp2026.pdf" },
   { yr: "2026", deg: "7-Day AI Agents Crash Course", school: "AI Hero · completed" },
   { yr: "2026", deg: "AI Dev Tools Zoomcamp 2025", school: "DataTalksClub · completed" },
   { yr: "2026", deg: "Machine Learning Zoomcamp 2025", school: "DataTalksClub · passed" },
@@ -264,6 +265,7 @@ const CERTS = [
   { label: "Advanced Distributed Systems Design", img: "assets/certificates/AdvancedDistributedSystemsDesign.PNG", href: "assets/certificates/AdvancedDistributedSystemsDesign.PNG" },
   { label: "AI Agents Crash Course", img: null, href: "assets/certificates/AI Agents Crash Course Certificate.pdf" },
   { label: "AI with Data Science", img: null, href: "assets/certificates/Michael Altamirano.pdf" },
+  { label: "Data Engineering Zoomcamp 2026", img: null, href: "assets/certificates/DataEngineeringZoomcamp2026.pdf" },
 ];
 
 const DOCUMENTS = [
