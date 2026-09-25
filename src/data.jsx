@@ -113,14 +113,21 @@ const PROJECTS = [
       "Full-stack tool for managing and deploying ML models. React + TypeScript frontend, FastAPI backend, deployed on Railway.",
     tags: ["FastAPI", "React", "TypeScript", "Railway"],
     domains: ["ml", "cloud"],
+    links: [
+      { label: "GitHub", href: "https://github.com/HighviewOne/ml-model-registry" },
+    ],
   },
   {
     id: "ml-pipelines",
-    title: "End-to-End ML Pipelines",
+    title: "ML Model Deployment: Docker, Serverless, Kubernetes",
     summary:
-      "Production ML pipelines orchestrated with Docker and Kubernetes — reproducibility, reliability, scalable training-to-serving.",
+      "ML Zoomcamp 2025 coursework and midterm project: models served via FastAPI/Flask in Docker, serverless inference on AWS Lambda, and TensorFlow Serving on Kubernetes.",
     tags: ["Docker", "Kubernetes", "MLOps"],
     domains: ["ml", "cloud"],
+    links: [
+      { label: "Coursework", href: "https://github.com/HighviewOne/machine-learning-zoomcamp-homework" },
+      { label: "Wine quality project", href: "https://github.com/HighviewOne/MLZoomcampProject1" },
+    ],
   },
   {
     id: "transfer-learning",
@@ -129,14 +136,21 @@ const PROJECTS = [
       "Computer vision projects applying transfer learning to image classification and human activity recognition with state-of-the-art models.",
     tags: ["Computer Vision", "TensorFlow", "Python"],
     domains: ["ml"],
+    links: [
+      { label: "Flower classification", href: "https://github.com/HighviewOne/flower-classification-capstone" },
+      { label: "Activity recognition", href: "https://github.com/HighviewOne/har-classification-capstone" },
+    ],
   },
   {
     id: "realtime",
-    title: "Real-Time Collaborative Platform",
+    title: "Collaborative Coding Interview Platform",
     summary:
-      "WebSocket-driven collaborative editor with synchronized state across many concurrent users.",
-    tags: ["WebSocket", "Real-Time", "Full-Stack"],
+      "Shareable interview sessions with a Monaco code editor synced live across participants over WebSockets, plus in-browser JavaScript and Python (Pyodide/WASM) execution.",
+    tags: ["WebSocket", "React", "Express", "WASM"],
     domains: ["cloud"],
+    links: [
+      { label: "GitHub", href: "https://github.com/HighviewOne/CodingInterviewPlatform" },
+    ],
   },
   {
     id: "solar",

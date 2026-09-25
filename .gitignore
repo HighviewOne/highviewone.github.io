@@ -15,7 +15,6 @@ Thumbs.db
 # Node (if using later)
 node_modules/
 npm-debug.log
-package-lock.json
 yarn.lock
 
 # Build/dist
@@ -28,3 +27,7 @@ build/
 
 # Local testing
 .local/
+
+# Private / working files kept in the repo folder — never publish
+*.zip
+/*.pdf

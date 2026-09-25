@@ -6,100 +6,66 @@ Portfolio site for Michael Altamirano, Systems/Reliability Engineer with 25+ yea
 
 ## Tech Stack
 
-- HTML5 / CSS3 (no JavaScript framework)
-- Vanilla JavaScript for theme switching and interactions
+- React 18 (vendored UMD builds in `vendor/`, no CDN dependency)
+- JSX in `src/`, pre-compiled to plain JS with Babel (no bundler, no runtime transpiling)
+- Single hand-written stylesheet (`styles.css`), dark editorial theme
 - Hosted on GitHub Pages
-- Lighthouse Performance: A (94+)
-- Cross-browser compatible (Chrome, Firefox, Safari, Edge)
-
-## Features
-
-- **Dark/Light Mode Toggle** – Theme preference saved to localStorage
-- **Responsive Design** – Mobile-first, optimized for all screen sizes
-- **Semantic HTML** – Proper heading hierarchy and accessibility
-- **SEO Optimized** – Open Graph tags, JSON-LD schema, canonical URLs, sitemap, robots.txt
-- **Performance** – Font preloading, smooth scroll behavior, minimal JavaScript
 
 ## Sections
 
-- **About** – Background and current work
-- **Projects** – Engineering and business projects
-- **Experience** – Work history
-- **Skills** – Technical skills grid
-- **Education** – Degrees and professional development
-- **Credentials** – Clickable thumbnails for degrees, certificates, and documents
-- **Contact** – Email, LinkedIn, GitHub
+Hero · About · Work (interactive career timeline) · Projects (filterable) · Skills · Education (degrees, certifications, endorsements) · Contact
+
+## Editing Content
+
+Almost all content lives in `src/data.jsx` (career timeline, projects, skills, education, certificates, documents). Layout and copy for each section are in `src/components.jsx`.
+
+**Edit the files in `src/`, never the compiled `app.js` / `components.js` / `data.js` in the root.** Rebuild after every change:
+
+```bash
+npm install     # first time only
+npm run build   # src/*.jsx → *.js, stamps the footer "Last updated" date
+```
+
+Commit both the `src/` changes and the regenerated `.js` files; GitHub Pages serves the compiled output directly.
+
+## Local Preview
+
+```bash
+python3 -m http.server 8000   # then open http://localhost:8000
+```
 
 ## Assets
 
 ```
 assets/
-├── certificates/   # Professional certifications (JPG/PDF)
+├── certificates/   # Professional certifications (JPG/PNG/PDF)
 ├── degrees/        # Degree scans (PDF)
 ├── documents/      # Resume and letters of recommendation
 └── projects/       # Project images and reports
 ```
 
-## Local Development
-
-Open `index.html` directly in a browser — no build step required.
-
-```bash
-xdg-open index.html   # Linux
-open index.html        # macOS
-```
-
-## Deployment
-
-This site is deployed to GitHub Pages via the `main` branch. Any push to `main` automatically deploys the site.
-
-### GitHub Pages Setup
-- Repository: `HighviewOne/HighviewOne.github.io`
-- Branch: `main`
-- Custom domain: Not configured (using default)
-
-### Performance Metrics
-- **Lighthouse Score**: 94+ (Performance, Accessibility, Best Practices, SEO)
-- **Core Web Vitals**: Optimized
-- **Bundle Size**: <50KB total (HTML + CSS + JS)
-
-## Browser Compatibility
-
-- ✅ Chrome/Edge 88+
-- ✅ Firefox 85+
-- ✅ Safari 14+
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
-Tested with:
-- CSS Grid and Flexbox
-- Modern CSS variables (custom properties)
-- LocalStorage API
-- SVG support
+Everything under `assets/` is publicly downloadable once pushed. Keep private working files (drafts, questionnaires, design exports) out of the repo; root-level `*.pdf` and `*.zip` are git-ignored as a safety net.
 
 ## Files Structure
 
 ```
 .
-├── index.html           # Main HTML file
-├── styles.css           # All styling
-├── robots.txt           # SEO crawler directives
-├── sitemap.xml          # XML sitemap for search engines
-├── .gitignore           # Git ignore rules
-├── favicon.svg          # Site icon
-├── README.md            # This file
-└── assets/              # Images, PDFs, documents
+├── index.html        # Shell page: meta/OG tags, JSON-LD, noscript fallback, script tags
+├── styles.css        # All styling
+├── src/              # JSX sources (edit these)
+├── app.js            # ┐
+├── components.js     # ├ compiled output of src/ — do not edit by hand
+├── data.js           # ┘
+├── build.js          # Babel build script (npm run build)
+├── vendor/           # React + ReactDOM production builds
+├── robots.txt / sitemap.xml
+└── assets/
 ```
 
-## Recent Updates
+## Deployment
 
-- Added dark/light mode toggle with localStorage persistence
-- Added back-to-top button for better navigation
-- Improved SEO with JSON-LD structured data
-- Added sitemap.xml and robots.txt
-- Implemented font preloading for performance
-- Updated all external links with security attributes (rel="noopener noreferrer")
+Pushing to `main` on `HighviewOne/highviewone.github.io` deploys automatically via GitHub Pages. Update `<lastmod>` in `sitemap.xml` when content changes meaningfully.
 
 ## License
 
 This is a personal portfolio. Feel free to fork and adapt for your own use.
-

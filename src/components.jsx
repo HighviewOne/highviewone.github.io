@@ -1,6 +1,9 @@
 /* global React, window */
 const { useState, useEffect, useRef, useMemo } = React;
 
+const prefersReducedMotion = () =>
+  window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 /* ----- Icons ----------------------------------------------------- */
 const Icon = ({ name, size = 16 }) => {
   const common = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
@@ -47,7 +50,7 @@ function Topbar({ active }) {
         </a>
         <nav className="nav-links">
           {links.map(([id, label]) => (
-            <a key={id} href={`#${id}`} className={active === id ? "active" : ""}>{label}</a>
+            <a key={id} href={`#${id}`} className={active === id ? "active" : ""} aria-current={active === id ? "true" : undefined}>{label}</a>
           ))}
         </nav>
         <div className="top-actions">
@@ -67,7 +70,9 @@ function Rotator({ words }) {
   const [idx, setIdx] = useState(0);
   const [text, setText] = useState(words[0]);
   const [phase, setPhase] = useState("typing");
+  const [still] = useState(prefersReducedMotion);
   useEffect(() => {
+    if (still) return;
     let timer;
     const target = words[idx];
     if (phase === "typing") {
@@ -86,8 +91,8 @@ function Rotator({ words }) {
       }
     }
     return () => clearTimeout(timer);
-  }, [text, phase, idx, words]);
-  return <span className="rotator">{text || " "}</span>;
+  }, [text, phase, idx, words, still]);
+  return <span className="rotator" aria-hidden="true">{text || " "}</span>;
 }
 
 /* ----- Counter --------------------------------------------------- */
@@ -98,6 +103,7 @@ function Counter({ to, suffix, duration = 1400 }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) { setN(to); return; }
     const obs = new IntersectionObserver((ents) => {
       ents.forEach((e) => {
         if (e.isIntersecting && !fired.current) {
@@ -127,7 +133,7 @@ function Hero() {
         <div className="eyebrow"><span className="dot" /> Available · Los Angeles · U.S. Citizen</div>
         <h1>
           Senior engineer<br />
-          shipping reliable&nbsp;<Rotator words={window.ROTATOR} />
+          shipping reliable&nbsp;<span className="sr-only">{window.ROTATOR.join(", ")}</span><Rotator words={window.ROTATOR} />
         </h1>
         <p className="hero-lede">
           25+ years building things that don't fall over — from <strong>NASA's Deep Space Network</strong> to a <strong>1,000-server fleet at DirecTV</strong> serving 21M subscribers, to <strong>FAA airspace modernization</strong> today. Now closing the loop with cloud-native and ML-aware infrastructure.
@@ -187,9 +193,9 @@ function About() {
             <div className="now-card">
               <h3>Currently building</h3>
               <ul>
-                <li>Data Engineering Zoomcamp 2026 — Docker, SQL, Terraform</li>
+                <li>FAA NAS modernization at Leidos — NEXCOM radios, A/G protocol converters, cable loops</li>
+                <li>Data Engineering Zoomcamp 2026 — Docker, dbt, Spark, Kafka, Terraform (Passed)</li>
                 <li>Peer reviewer for ML Zoomcamp 2025 & AI Dev Tools Zoomcamp 2025</li>
-                <li>ML Zoomcamp 2025 — computer vision, deployment, K8s for ML (Passed)</li>
               </ul>
             </div>
           </div>
@@ -210,18 +216,20 @@ function CareerArc() {
           <div className="section-num">02 · Work</div>
           <div>
             <h2 className="section-title">Three decades, one arc.</h2>
-            <p className="section-kicker">Click a node to dive in. Each chapter built on the last — hardware → infrastructure → cloud → ML.</p>
+            <p className="section-kicker">Select a node to dive in. Each chapter built on the last — hardware → infrastructure → cloud → ML.</p>
           </div>
         </div>
         <div className="arc">
           <div className="arc-track">
             <div className="arc-line" />
             {window.ARC_NODES.map((n) => (
-              <div key={n.id} className={"arc-node" + (active === n.id ? " active" : "")} onClick={() => setActive(n.id)}>
-                <div className="arc-year">{n.year}</div>
-                <div className="arc-dot" />
-                <div className="arc-name">{n.short}</div>
-              </div>
+              <button key={n.id} type="button" className={"arc-node" + (active === n.id ? " active" : "")}
+                aria-pressed={active === n.id} aria-label={`${n.year} · ${n.short}`}
+                onClick={() => setActive(n.id)}>
+                <span className="arc-year">{n.year}</span>
+                <span className="arc-dot" />
+                <span className="arc-name">{n.short}</span>
+              </button>
             ))}
           </div>
           <div className="arc-detail" key={node.id}>
@@ -270,6 +278,7 @@ function Projects() {
           {window.PROJECT_FILTERS.map((f) => (
             <button key={f.id}
               className={"chip" + (filter === f.id ? " active" : "")}
+              aria-pressed={filter === f.id}
               onClick={() => setFilter(f.id)}>
               {f.label} <span className="count">{counts[f.id] || 0}</span>
             </button>
@@ -465,8 +474,8 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
-        <div>© 2026 Michael Altamirano</div>
-        <div>Last updated · May 2026</div>
+        <div>© {new Date().getFullYear()} Michael Altamirano</div>
+        <div>Last updated · {window.BUILD_DATE}</div>
         <div>Hosted on GitHub Pages</div>
       </div>
     </footer>

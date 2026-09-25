@@ -5,6 +5,7 @@ const {
   useRef,
   useMemo
 } = React;
+const prefersReducedMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ----- Icons ----------------------------------------------------- */
 const Icon = ({
@@ -163,7 +164,8 @@ function Topbar({
   }, links.map(([id, label]) => /*#__PURE__*/React.createElement("a", {
     key: id,
     href: `#${id}`,
-    className: active === id ? "active" : ""
+    className: active === id ? "active" : "",
+    "aria-current": active === id ? "true" : undefined
   }, label))), /*#__PURE__*/React.createElement("div", {
     className: "top-actions"
   }, /*#__PURE__*/React.createElement("a", {
@@ -200,7 +202,9 @@ function Rotator({
   const [idx, setIdx] = useState(0);
   const [text, setText] = useState(words[0]);
   const [phase, setPhase] = useState("typing");
+  const [still] = useState(prefersReducedMotion);
   useEffect(() => {
+    if (still) return;
     let timer;
     const target = words[idx];
     if (phase === "typing") {
@@ -219,9 +223,10 @@ function Rotator({
       }
     }
     return () => clearTimeout(timer);
-  }, [text, phase, idx, words]);
+  }, [text, phase, idx, words, still]);
   return /*#__PURE__*/React.createElement("span", {
-    className: "rotator"
+    className: "rotator",
+    "aria-hidden": "true"
   }, text || " ");
 }
 
@@ -237,6 +242,10 @@ function Counter({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) {
+      setN(to);
+      return;
+    }
     const obs = new IntersectionObserver(ents => {
       ents.forEach(e => {
         if (e.isIntersecting && !fired.current) {
@@ -275,7 +284,9 @@ function Hero() {
     className: "eyebrow"
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), " Available \xB7 Los Angeles \xB7 U.S. Citizen"), /*#__PURE__*/React.createElement("h1", null, "Senior engineer", /*#__PURE__*/React.createElement("br", null), "shipping reliable\xA0", /*#__PURE__*/React.createElement(Rotator, {
+  }), " Available \xB7 Los Angeles \xB7 U.S. Citizen"), /*#__PURE__*/React.createElement("h1", null, "Senior engineer", /*#__PURE__*/React.createElement("br", null), "shipping reliable\xA0", /*#__PURE__*/React.createElement("span", {
+    className: "sr-only"
+  }, window.ROTATOR.join(", ")), /*#__PURE__*/React.createElement(Rotator, {
     words: window.ROTATOR
   })), /*#__PURE__*/React.createElement("p", {
     className: "hero-lede"
@@ -352,7 +363,7 @@ function About() {
     className: "about-prose"
   }, /*#__PURE__*/React.createElement("p", null, "I'm a Systems / Reliability Engineer with 25+ years of experience \u2014 and the kind of background that's hard to manufacture. I started on NASA's Deep Space Network, spent 12 years validating power semiconductors at International Rectifier / Infineon, then 13 years at DirecTV running infrastructure for 21M subscribers."), /*#__PURE__*/React.createElement("p", null, "Today, I'm at Leidos supporting ", /*#__PURE__*/React.createElement("strong", null, "FAA National Airspace System modernization"), " \u2014 designing system integration packages for NEXCOM Radios, Air-to-Ground Protocol Converters, and Airport Cable Loop infrastructure across the Western Service Area."), /*#__PURE__*/React.createElement("p", null, "Across all of it, the through-line is the same: rigorous testing, a healthy fear of single points of failure, and clean handoffs to whoever runs it next. I bring depth where the system is unforgiving \u2014 and I'm actively extending that depth into modern data and ML platforms."), /*#__PURE__*/React.createElement("div", {
     className: "now-card"
-  }, /*#__PURE__*/React.createElement("h3", null, "Currently building"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Data Engineering Zoomcamp 2026 \u2014 Docker, SQL, Terraform"), /*#__PURE__*/React.createElement("li", null, "Peer reviewer for ML Zoomcamp 2025 & AI Dev Tools Zoomcamp 2025"), /*#__PURE__*/React.createElement("li", null, "ML Zoomcamp 2025 \u2014 computer vision, deployment, K8s for ML (Passed)")))))));
+  }, /*#__PURE__*/React.createElement("h3", null, "Currently building"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "FAA NAS modernization at Leidos \u2014 NEXCOM radios, A/G protocol converters, cable loops"), /*#__PURE__*/React.createElement("li", null, "Data Engineering Zoomcamp 2026 \u2014 Docker, dbt, Spark, Kafka, Terraform (Passed)"), /*#__PURE__*/React.createElement("li", null, "Peer reviewer for ML Zoomcamp 2025 & AI Dev Tools Zoomcamp 2025")))))));
 }
 
 /* ----- Career arc ------------------------------------------------- */
@@ -371,21 +382,24 @@ function CareerArc() {
     className: "section-title"
   }, "Three decades, one arc."), /*#__PURE__*/React.createElement("p", {
     className: "section-kicker"
-  }, "Click a node to dive in. Each chapter built on the last \u2014 hardware \u2192 infrastructure \u2192 cloud \u2192 ML."))), /*#__PURE__*/React.createElement("div", {
+  }, "Select a node to dive in. Each chapter built on the last \u2014 hardware \u2192 infrastructure \u2192 cloud \u2192 ML."))), /*#__PURE__*/React.createElement("div", {
     className: "arc"
   }, /*#__PURE__*/React.createElement("div", {
     className: "arc-track"
   }, /*#__PURE__*/React.createElement("div", {
     className: "arc-line"
-  }), window.ARC_NODES.map(n => /*#__PURE__*/React.createElement("div", {
+  }), window.ARC_NODES.map(n => /*#__PURE__*/React.createElement("button", {
     key: n.id,
+    type: "button",
     className: "arc-node" + (active === n.id ? " active" : ""),
+    "aria-pressed": active === n.id,
+    "aria-label": `${n.year} · ${n.short}`,
     onClick: () => setActive(n.id)
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("span", {
     className: "arc-year"
-  }, n.year), /*#__PURE__*/React.createElement("div", {
+  }, n.year), /*#__PURE__*/React.createElement("span", {
     className: "arc-dot"
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("span", {
     className: "arc-name"
   }, n.short)))), /*#__PURE__*/React.createElement("div", {
     className: "arc-detail",
@@ -443,6 +457,7 @@ function Projects() {
   }, window.PROJECT_FILTERS.map(f => /*#__PURE__*/React.createElement("button", {
     key: f.id,
     className: "chip" + (filter === f.id ? " active" : ""),
+    "aria-pressed": filter === f.id,
     onClick: () => setFilter(f.id)
   }, f.label, " ", /*#__PURE__*/React.createElement("span", {
     className: "count"
@@ -679,7 +694,7 @@ function Footer() {
     className: "site-footer"
   }, /*#__PURE__*/React.createElement("div", {
     className: "container footer-inner"
-  }, /*#__PURE__*/React.createElement("div", null, "\xA9 2026 Michael Altamirano"), /*#__PURE__*/React.createElement("div", null, "Last updated \xB7 May 2026"), /*#__PURE__*/React.createElement("div", null, "Hosted on GitHub Pages")));
+  }, /*#__PURE__*/React.createElement("div", null, "\xA9 ", new Date().getFullYear(), " Michael Altamirano"), /*#__PURE__*/React.createElement("div", null, "Last updated \xB7 ", window.BUILD_DATE), /*#__PURE__*/React.createElement("div", null, "Hosted on GitHub Pages")));
 }
 Object.assign(window, {
   Topbar,
