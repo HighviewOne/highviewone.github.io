@@ -44,6 +44,8 @@ assets/
 └── projects/       # Project images and reports
 ```
 
+**Replacing the résumé:** keep the filename `assets/documents/Michael_Altamirano_Resume.pdf` (several links point to it) and remove the phone number before committing. The published copy is redacted, but the Word source isn't.
+
 Everything under `assets/` is publicly downloadable once pushed. Keep private working files (drafts, questionnaires, design exports) out of the repo; root-level `*.pdf` and `*.zip` are git-ignored as a safety net.
 
 ## Files Structure
