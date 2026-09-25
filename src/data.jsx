@@ -107,6 +107,18 @@ const PROJECTS = [
     ],
   },
   {
+    id: "nod-tracker",
+    title: "SoCal NOD Tracker — Foreclosure Early-Warning Pipeline",
+    summary:
+      "Data Engineering Zoomcamp 2026 capstone: daily Notice of Default filings from 6 Southern California counties land in a GCS data lake, load into partitioned BigQuery tables, get modeled with dbt, and surface in a Looker Studio dashboard. Infrastructure in Terraform; runs every weekday.",
+    tags: ["GCP", "BigQuery", "dbt", "Terraform", "Kestra", "Python"],
+    domains: ["ml", "cloud"],
+    links: [
+      { label: "GitHub", href: "https://github.com/HighviewOne/SoCal-NOD-Tracker" },
+      { label: "Zoomcamp coursework", href: "https://github.com/HighviewOne/DataEngineeringZoomcamp2026" },
+    ],
+  },
+  {
     id: "ml-registry",
     title: "ML Model Registry & Deployment Dashboard",
     summary:
@@ -284,8 +296,6 @@ const CERTS = [
 
 const DOCUMENTS = [
   { label: "Resume (PDF)", href: "assets/documents/Michael_Altamirano_Resume.pdf" },
-  { label: "Letter of Recommendation — Al Diy", href: "assets/documents/Al Diy Letter of Recommendation.jpg" },
-  { label: "Letter of Recommendation — John Ambrus", href: "assets/documents/John Ambrus Letter of Recommendation.jpg" },
   { label: "Letter of Recommendation — M Ahsan", href: "assets/documents/Letter of Recommendation from M Ahsan.pdf" },
 ];
 
