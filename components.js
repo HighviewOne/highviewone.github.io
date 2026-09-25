@@ -284,7 +284,7 @@ function Hero() {
     className: "eyebrow"
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), " Available \xB7 Los Angeles \xB7 U.S. Citizen"), /*#__PURE__*/React.createElement("h1", null, "Senior engineer", /*#__PURE__*/React.createElement("br", null), "shipping reliable\xA0", /*#__PURE__*/React.createElement("span", {
+  }), " Open to opportunities \xB7 Los Angeles \xB7 U.S. Citizen"), /*#__PURE__*/React.createElement("h1", null, "Senior engineer", /*#__PURE__*/React.createElement("br", null), "shipping reliable\xA0", /*#__PURE__*/React.createElement("span", {
     className: "sr-only"
   }, window.ROTATOR.join(", ")), /*#__PURE__*/React.createElement(Rotator, {
     words: window.ROTATOR
@@ -359,7 +359,7 @@ function About() {
     className: "about-grid"
   }, /*#__PURE__*/React.createElement("dl", {
     className: "about-meta"
-  }, /*#__PURE__*/React.createElement("dt", null, "Based"), /*#__PURE__*/React.createElement("dd", null, "Los Angeles, CA"), /*#__PURE__*/React.createElement("dt", null, "Status"), /*#__PURE__*/React.createElement("dd", null, "U.S. Citizen \xB7 Available"), /*#__PURE__*/React.createElement("dt", null, "Currently"), /*#__PURE__*/React.createElement("dd", null, "Electronics Engineer, Leidos (FAA)"), /*#__PURE__*/React.createElement("dt", null, "Focus"), /*#__PURE__*/React.createElement("dd", null, "SRE \xB7 Platforms \xB7 ML systems")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("dt", null, "Based"), /*#__PURE__*/React.createElement("dd", null, "Los Angeles, CA"), /*#__PURE__*/React.createElement("dt", null, "Status"), /*#__PURE__*/React.createElement("dd", null, "U.S. Citizen \xB7 Open to opportunities"), /*#__PURE__*/React.createElement("dt", null, "Currently"), /*#__PURE__*/React.createElement("dd", null, "Electronics Engineer, Leidos (FAA)"), /*#__PURE__*/React.createElement("dt", null, "Focus"), /*#__PURE__*/React.createElement("dd", null, "SRE \xB7 Platforms \xB7 ML systems")), /*#__PURE__*/React.createElement("div", {
     className: "about-prose"
   }, /*#__PURE__*/React.createElement("p", null, "I'm a Systems / Reliability Engineer with 25+ years of experience \u2014 and the kind of background that's hard to manufacture. I started on NASA's Deep Space Network, spent 12 years validating power semiconductors at International Rectifier / Infineon, then 13 years at DirecTV running infrastructure for 21M subscribers."), /*#__PURE__*/React.createElement("p", null, "Today, I'm at Leidos supporting ", /*#__PURE__*/React.createElement("strong", null, "FAA National Airspace System modernization"), " \u2014 designing system integration packages for NEXCOM Radios, Air-to-Ground Protocol Converters, and Airport Cable Loop infrastructure across the Western Service Area."), /*#__PURE__*/React.createElement("p", null, "Across all of it, the through-line is the same: rigorous testing, a healthy fear of single points of failure, and clean handoffs to whoever runs it next. I bring depth where the system is unforgiving \u2014 and I'm actively extending that depth into modern data and ML platforms."), /*#__PURE__*/React.createElement("div", {
     className: "now-card"
@@ -683,7 +683,7 @@ function Contact() {
     className: "k"
   }, "CITZ"), " U.S. Citizen"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
     className: "k"
-  }, "AVAIL"), " Immediate"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+  }, "OPEN"), " To the right role"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
     className: "k"
   }, "CLR"), " Cleared-eligible")))));
 }

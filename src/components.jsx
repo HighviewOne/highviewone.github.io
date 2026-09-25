@@ -130,7 +130,7 @@ function Hero() {
   return (
     <section className="hero" id="top">
       <div className="container">
-        <div className="eyebrow"><span className="dot" /> Available · Los Angeles · U.S. Citizen</div>
+        <div className="eyebrow"><span className="dot" /> Open to opportunities · Los Angeles · U.S. Citizen</div>
         <h1>
           Senior engineer<br />
           shipping reliable&nbsp;<span className="sr-only">{window.ROTATOR.join(", ")}</span><Rotator words={window.ROTATOR} />
@@ -182,7 +182,7 @@ function About() {
         <div className="about-grid">
           <dl className="about-meta">
             <dt>Based</dt><dd>Los Angeles, CA</dd>
-            <dt>Status</dt><dd>U.S. Citizen · Available</dd>
+            <dt>Status</dt><dd>U.S. Citizen · Open to opportunities</dd>
             <dt>Currently</dt><dd>Electronics Engineer, Leidos (FAA)</dd>
             <dt>Focus</dt><dd>SRE · Platforms · ML systems</dd>
           </dl>
@@ -460,7 +460,7 @@ function Contact() {
           <div className="contact-meta">
             <span><span className="k">LOC</span> Los Angeles, CA</span>
             <span><span className="k">CITZ</span> U.S. Citizen</span>
-            <span><span className="k">AVAIL</span> Immediate</span>
+            <span><span className="k">OPEN</span> To the right role</span>
             <span><span className="k">CLR</span> Cleared-eligible</span>
           </div>
         </div>
