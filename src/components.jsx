@@ -194,7 +194,7 @@ function About() {
               <h3>Currently building</h3>
               <ul>
                 <li>FAA NAS modernization at Leidos — NEXCOM radios, A/G protocol converters, cable loops</li>
-                <li>Data Engineering Zoomcamp 2026 — Docker, dbt, Spark, Kafka, Terraform (Passed)</li>
+                <li>SoCal NOD Tracker — daily foreclosure-filing pipeline on GCP (BigQuery, dbt, Terraform)</li>
                 <li>Peer reviewer for ML Zoomcamp 2025 & AI Dev Tools Zoomcamp 2025</li>
               </ul>
             </div>
