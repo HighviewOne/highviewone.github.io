@@ -387,4 +387,4 @@ Object.assign(window, {
   DOCUMENTS,
   ROTATOR
 });
-window.BUILD_DATE = "October 2026";
+window.BUILD_DATE = "November 2026";

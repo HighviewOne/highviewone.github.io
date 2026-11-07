@@ -136,7 +136,7 @@ function Hero() {
           shipping reliable&nbsp;<span className="sr-only">{window.ROTATOR.join(", ")}</span><Rotator words={window.ROTATOR} />
         </h1>
         <p className="hero-lede">
-          25+ years building things that don't fall over — from <strong>NASA's Deep Space Network</strong> to a <strong>1,000-server fleet at DirecTV</strong> serving 21M subscribers, to <strong>FAA airspace modernization</strong> today. Now closing the loop with cloud-native and ML-aware infrastructure.
+          30+ years building things that don't fall over — from <strong>NASA's Deep Space Network</strong> to a <strong>1,000-server fleet at DirecTV</strong> serving 21M subscribers, to <strong>FAA airspace modernization</strong> today. Now closing the loop with cloud-native and ML-aware infrastructure.
         </p>
         <div className="hero-actions">
           <a className="btn-primary" href="assets/documents/Michael_Altamirano_Resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -187,7 +187,7 @@ function About() {
             <dt>Focus</dt><dd>SRE · Platforms · ML systems</dd>
           </dl>
           <div className="about-prose">
-            <p>I'm a Systems / Reliability Engineer with 25+ years of experience — and the kind of background that's hard to manufacture. I started on NASA's Deep Space Network, spent 12 years validating power semiconductors at International Rectifier / Infineon, then 13 years at DirecTV running infrastructure for 21M subscribers.</p>
+            <p>I'm a Systems / Reliability Engineer with 30+ years of experience — and the kind of background that's hard to manufacture. I started on NASA's Deep Space Network, spent 12 years validating power semiconductors at International Rectifier / Infineon, then 13 years at DirecTV running infrastructure for 21M subscribers.</p>
             <p>Today, I'm at Leidos supporting <strong>FAA National Airspace System modernization</strong> — designing system integration packages for NEXCOM Radios, Air-to-Ground Protocol Converters, and Airport Cable Loop infrastructure across the Western Service Area.</p>
             <p>Across all of it, the through-line is the same: rigorous testing, a healthy fear of single points of failure, and clean handoffs to whoever runs it next. I bring depth where the system is unforgiving — and I'm actively extending that depth into modern data and ML platforms.</p>
             <div className="now-card">

@@ -1,6 +1,6 @@
 # Michael Altamirano - Personal Website
 
-Portfolio site for Michael Altamirano, Systems/Reliability Engineer with 25+ years of experience in FAA infrastructure, satellite systems, power semiconductors, and cloud/ML engineering.
+Portfolio site for Michael Altamirano, Systems/Reliability Engineer with 30+ years of experience in FAA infrastructure, satellite systems, power semiconductors, and cloud/ML engineering.
 
 🌐 **Live site:** [highviewone.github.io](https://highviewone.github.io)
 
