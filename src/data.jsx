@@ -171,7 +171,11 @@ const PROJECTS = [
       "Designed and built a solar-powered charger: 40W PV panel feeding a Buck converter to safely charge a 6V 12Ah lead-acid battery. Schematic, simulation, build, and enclosure. CSULB EE458.",
     tags: ["Power Electronics", "Hardware", "Circuit Design"],
     domains: ["hw"],
-    image: "assets/projects/solar-panel-assembly.jpg",
+    image: {
+      thumb: "assets/projects/thumbs/solar-panel-assembly.webp",
+      full: "assets/projects/solar-panel-assembly.jpg",
+      alt: "The finished solar charger: 40W panel on a stand above the open charger enclosure",
+    },
     links: [
       { label: "Full report (PDF)", href: "assets/projects/solar-panel-charging-circuit-report.pdf" },
     ],

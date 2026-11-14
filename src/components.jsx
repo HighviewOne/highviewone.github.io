@@ -299,7 +299,12 @@ function Projects() {
           {window.PROJECTS.map((p, i) => {
             const visible = filter === "all" || p.domains.includes(filter);
             return (
-              <article key={p.id} className={"proj-card" + (p.featured ? " featured" : "") + (visible ? "" : " hidden")}>
+              <article key={p.id} className={"proj-card" + (p.featured ? " featured" : "") + (p.image ? " has-image" : "") + (visible ? "" : " hidden")}>
+                {p.image && (
+                  <a className="proj-photo" href={p.image.full} target="_blank" rel="noopener noreferrer">
+                    <img src={p.image.thumb} alt={p.image.alt} width="140" height="188" loading="lazy" />
+                  </a>
+                )}
                 <div className="head">
                   <span className="index">{p.index || String(i + 1).padStart(2, "0")}</span>
                   {p.featured && <span className="index" style={{ color: "var(--accent)" }}>FEATURED</span>}

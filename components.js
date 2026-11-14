@@ -474,8 +474,19 @@ function Projects() {
     const visible = filter === "all" || p.domains.includes(filter);
     return /*#__PURE__*/React.createElement("article", {
       key: p.id,
-      className: "proj-card" + (p.featured ? " featured" : "") + (visible ? "" : " hidden")
-    }, /*#__PURE__*/React.createElement("div", {
+      className: "proj-card" + (p.featured ? " featured" : "") + (p.image ? " has-image" : "") + (visible ? "" : " hidden")
+    }, p.image && /*#__PURE__*/React.createElement("a", {
+      className: "proj-photo",
+      href: p.image.full,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: p.image.thumb,
+      alt: p.image.alt,
+      width: "140",
+      height: "188",
+      loading: "lazy"
+    })), /*#__PURE__*/React.createElement("div", {
       className: "head"
     }, /*#__PURE__*/React.createElement("span", {
       className: "index"
