@@ -240,6 +240,8 @@ function CareerArc() {
               </button>
             ))}
           </div>
+          {/* Announce the newly selected chapter to screen readers. */}
+          <div aria-live="polite">
           <div className="arc-detail" key={node.id}>
             <div className="arc-detail-meta">
               <div className="role">{node.role}</div>
@@ -254,6 +256,7 @@ function CareerArc() {
                 {node.bullets.map((b, i) => <li key={i}>{b}</li>)}
               </ul>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -298,7 +301,7 @@ function Projects() {
             return (
               <article key={p.id} className={"proj-card" + (p.featured ? " featured" : "") + (visible ? "" : " hidden")}>
                 <div className="head">
-                  <span className="index">{p.index || `0${i + 1}`}</span>
+                  <span className="index">{p.index || String(i + 1).padStart(2, "0")}</span>
                   {p.featured && <span className="index" style={{ color: "var(--accent)" }}>FEATURED</span>}
                 </div>
                 <h3>{p.title}</h3>

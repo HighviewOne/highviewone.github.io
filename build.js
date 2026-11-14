@@ -40,5 +40,17 @@ const indexPath = path.join(__dirname, 'index.html');
 const index = fs.readFileSync(indexPath, 'utf8');
 const rootRe = /<div id="root">[\s\S]*?<\/div>(?=\n<\/main>)/;
 if (!rootRe.test(index)) throw new Error('index.html: <div id="root">…</div> right before </main> not found');
-fs.writeFileSync(indexPath, index.replace(rootRe, () => `<div id="root">${html}</div>`));
+const newIndex = index.replace(rootRe, () => `<div id="root">${html}</div>`);
+fs.writeFileSync(indexPath, newIndex);
 console.log(`pre-rendered App → index.html (${(html.length / 1024).toFixed(1)} KB)`);
+
+// 3. Stamp sitemap <lastmod> with today's date, but only when the page content changed.
+//    Ignore the footer's "Last updated · <Month YYYY>" so a new month alone doesn't count.
+const content = (s) => s.replace(/Last updated · [^<]*/, '');
+if (content(newIndex) !== content(index)) {
+  const sitemapPath = path.join(__dirname, 'sitemap.xml');
+  const today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD, local time
+  const sitemap = fs.readFileSync(sitemapPath, 'utf8');
+  fs.writeFileSync(sitemapPath, sitemap.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${today}</lastmod>`));
+  console.log(`page content changed → sitemap lastmod ${today}`);
+}

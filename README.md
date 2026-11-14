@@ -9,6 +9,7 @@ Portfolio site for Michael Altamirano, Systems/Reliability Engineer with 30+ yea
 - React 18 (vendored UMD builds in `vendor/`, no CDN dependency)
 - JSX in `src/`, pre-compiled to plain JS with Babel (no bundler, no runtime transpiling)
 - Single hand-written stylesheet (`styles.css`), dark editorial theme
+- Self-hosted fonts in `assets/fonts/` (Inter, Inter Tight, JetBrains Mono; OFL — see the README there)
 - Hosted on GitHub Pages
 
 ## Sections
@@ -23,7 +24,8 @@ Almost all content lives in `src/data.jsx` (career timeline, projects, skills, e
 
 ```bash
 npm install     # first time only
-npm run build   # src/*.jsx → *.js, stamps the footer date, pre-renders the page into index.html
+npm run build   # src/*.jsx → *.js, stamps the footer date, pre-renders the page into index.html,
+                # and sets sitemap.xml <lastmod> to today if the page content changed
 ```
 
 Commit the `src/` changes together with the regenerated `.js` files and `index.html`; GitHub Pages serves the compiled output directly.
@@ -64,13 +66,14 @@ Everything under `assets/` is publicly downloadable once pushed. Keep private wo
 ├── data.js           # ┘
 ├── build.js          # Babel build script (npm run build)
 ├── vendor/           # React + ReactDOM production builds
+├── 404.html          # Not-found page (GitHub Pages serves it for any missing path)
 ├── robots.txt / sitemap.xml
 └── assets/
 ```
 
 ## Deployment
 
-Pushing to `main` on `HighviewOne/highviewone.github.io` deploys automatically via GitHub Pages. Update `<lastmod>` in `sitemap.xml` when content changes meaningfully.
+Pushing to `main` on `HighviewOne/highviewone.github.io` deploys automatically via GitHub Pages. The build updates `<lastmod>` in `sitemap.xml` when the page body changes; if you only hand-edit the `<head>` of `index.html` (titles, meta tags), update it yourself.
 
 ## License
 

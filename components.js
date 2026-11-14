@@ -407,6 +407,8 @@ function CareerArc() {
   }), /*#__PURE__*/React.createElement("span", {
     className: "arc-name"
   }, n.short)))), /*#__PURE__*/React.createElement("div", {
+    "aria-live": "polite"
+  }, /*#__PURE__*/React.createElement("div", {
     className: "arc-detail",
     key: node.id
   }, /*#__PURE__*/React.createElement("div", {
@@ -429,7 +431,7 @@ function CareerArc() {
     }
   }, node.summary), /*#__PURE__*/React.createElement("ul", null, node.bullets.map((b, i) => /*#__PURE__*/React.createElement("li", {
     key: i
-  }, b))))))));
+  }, b)))))))));
 }
 
 /* ----- Projects --------------------------------------------------- */
@@ -477,7 +479,7 @@ function Projects() {
       className: "head"
     }, /*#__PURE__*/React.createElement("span", {
       className: "index"
-    }, p.index || `0${i + 1}`), p.featured && /*#__PURE__*/React.createElement("span", {
+    }, p.index || String(i + 1).padStart(2, "0")), p.featured && /*#__PURE__*/React.createElement("span", {
       className: "index",
       style: {
         color: "var(--accent)"
