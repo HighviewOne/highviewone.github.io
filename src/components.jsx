@@ -1,6 +1,9 @@
 /* global React, window */
 const { useState, useEffect, useRef, useMemo } = React;
 
+// useLayoutEffect in the browser; plain useEffect during build.js pre-rendering (no document).
+const useClientLayoutEffect = typeof document !== "undefined" ? React.useLayoutEffect : React.useEffect;
+
 const prefersReducedMotion = () =>
   window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -97,13 +100,18 @@ function Rotator({ words }) {
 
 /* ----- Counter --------------------------------------------------- */
 function Counter({ to, suffix, duration = 1400 }) {
-  const [n, setN] = useState(0);
+  // Starts at the final value so the pre-rendered HTML (and no-JS visitors) show
+  // the real number; the client resets to 0 before first paint and counts up.
+  const [n, setN] = useState(to);
   const ref = useRef(null);
   const fired = useRef(false);
+  useClientLayoutEffect(() => {
+    if (!prefersReducedMotion()) setN(0);
+  }, []);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (prefersReducedMotion()) { setN(to); return; }
+    if (prefersReducedMotion()) return;
     const obs = new IntersectionObserver((ents) => {
       ents.forEach((e) => {
         if (e.isIntersecting && !fired.current) {
@@ -146,7 +154,7 @@ function Hero() {
         </div>
         <div className="stat-band">
           <div className="stat">
-            <div className="stat-num"><Counter to={25} suffix="+ yrs" /></div>
+            <div className="stat-num"><Counter to={30} suffix="+ yrs" /></div>
             <div className="stat-label">Building reliable systems</div>
           </div>
           <div className="stat">

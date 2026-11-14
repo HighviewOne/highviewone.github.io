@@ -18,4 +18,10 @@ function App() {
     active: active
   }), /*#__PURE__*/React.createElement(window.Hero, null), /*#__PURE__*/React.createElement(window.About, null), /*#__PURE__*/React.createElement(window.CareerArc, null), /*#__PURE__*/React.createElement(window.Projects, null), /*#__PURE__*/React.createElement(window.Skills, null), /*#__PURE__*/React.createElement(window.Education, null), /*#__PURE__*/React.createElement(window.Contact, null), /*#__PURE__*/React.createElement(window.Footer, null));
 }
-ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
+window.App = App;
+
+// build.js loads this file in Node (no ReactDOM) only to grab App for pre-rendering.
+if (window.ReactDOM) {
+  const root = document.getElementById("root");
+  if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, /*#__PURE__*/React.createElement(App, null));else ReactDOM.createRoot(root).render(/*#__PURE__*/React.createElement(App, null));
+}

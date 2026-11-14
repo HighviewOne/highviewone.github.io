@@ -29,4 +29,11 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.App = App;
+
+// build.js loads this file in Node (no ReactDOM) only to grab App for pre-rendering.
+if (window.ReactDOM) {
+  const root = document.getElementById("root");
+  if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, <App />);
+  else ReactDOM.createRoot(root).render(<App />);
+}

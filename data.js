@@ -321,39 +321,39 @@ const RECENT_LEARNING = [{
 }];
 const CERTS = [{
   label: "CompTIA A+",
-  img: "assets/certificates/CompTIA A+ Certificate.jpg",
+  img: "assets/certificates/thumbs/CompTIA A+ Certificate.webp",
   href: "assets/certificates/CompTIA A+ Certificate.jpg"
 }, {
   label: "Microsoft Certified Professional",
-  img: "assets/certificates/MCP Certificate.jpg",
+  img: "assets/certificates/thumbs/MCP Certificate.webp",
   href: "assets/certificates/MCP Certificate.jpg"
 }, {
   label: "NASA JPL — ESD Awareness",
-  img: "assets/certificates/NASA JPL ESD Awareness Certificate.jpg",
+  img: "assets/certificates/thumbs/NASA JPL ESD Awareness Certificate.webp",
   href: "assets/certificates/NASA JPL ESD Awareness Certificate.jpg"
 }, {
   label: "NASA JPL — Hand Soldering",
-  img: "assets/certificates/NASA JPL Hand Soldering Certificate.jpg",
+  img: "assets/certificates/thumbs/NASA JPL Hand Soldering Certificate.webp",
   href: "assets/certificates/NASA JPL Hand Soldering Certificate.jpg"
 }, {
   label: "NASA JPL — Wire Wrap",
-  img: "assets/certificates/NASA JPL Wire Wrap Certificate.jpg",
+  img: "assets/certificates/thumbs/NASA JPL Wire Wrap Certificate.webp",
   href: "assets/certificates/NASA JPL Wire Wrap Certificate.jpg"
 }, {
   label: "Kester Lead-Free Soldering",
-  img: "assets/certificates/Kester LeadFree Soldering.jpg",
+  img: "assets/certificates/thumbs/Kester LeadFree Soldering.webp",
   href: "assets/certificates/Kester LeadFree Soldering.jpg"
 }, {
   label: "IRF Measurement System Analysis",
-  img: "assets/certificates/IRF Measurement System Analysis.jpg",
+  img: "assets/certificates/thumbs/IRF Measurement System Analysis.webp",
   href: "assets/certificates/IRF Measurement System Analysis.jpg"
 }, {
   label: "ATI — A+ / MCSE / CCNA",
-  img: "assets/certificates/ATI A+ MCSE CCNA.jpg",
+  img: "assets/certificates/thumbs/ATI A+ MCSE CCNA.webp",
   href: "assets/certificates/ATI A+ MCSE CCNA.jpg"
 }, {
   label: "Advanced Distributed Systems Design",
-  img: "assets/certificates/AdvancedDistributedSystemsDesign.PNG",
+  img: "assets/certificates/thumbs/AdvancedDistributedSystemsDesign.webp",
   href: "assets/certificates/AdvancedDistributedSystemsDesign.PNG"
 }, {
   label: "AI Agents Crash Course",

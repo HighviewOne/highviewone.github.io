@@ -23,10 +23,14 @@ Almost all content lives in `src/data.jsx` (career timeline, projects, skills, e
 
 ```bash
 npm install     # first time only
-npm run build   # src/*.jsx → *.js, stamps the footer "Last updated" date
+npm run build   # src/*.jsx → *.js, stamps the footer date, pre-renders the page into index.html
 ```
 
-Commit both the `src/` changes and the regenerated `.js` files; GitHub Pages serves the compiled output directly.
+Commit the `src/` changes together with the regenerated `.js` files and `index.html`; GitHub Pages serves the compiled output directly.
+
+The build pre-renders the whole page into `<div id="root">` in `index.html` (so link previews, crawlers and no-JS visitors get real content); the browser then hydrates it. The `react`/`react-dom` dev dependencies must stay the same version as `vendor/` — the build stops if they differ.
+
+**Certificate images:** cards show WebP thumbnails from `assets/certificates/thumbs/` (480px wide) and link to the full image. For a new certificate, add a thumbnail the same way.
 
 ## Local Preview
 
@@ -52,7 +56,7 @@ Everything under `assets/` is publicly downloadable once pushed. Keep private wo
 
 ```
 .
-├── index.html        # Shell page: meta/OG tags, JSON-LD, noscript fallback, script tags
+├── index.html        # Meta/OG tags, JSON-LD, pre-rendered markup (written by the build), script tags
 ├── styles.css        # All styling
 ├── src/              # JSX sources (edit these)
 ├── app.js            # ┐
